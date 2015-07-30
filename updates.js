@@ -81,14 +81,14 @@ function tooltip(what, isItIn, event, textString) {
 		costText = costText.slice(0, -2);
 	}
 	if (what == "Donate"){
-		tooltipText = "I've spent a lot of hours working on this game, and I would love more than anything to be able to continue adding and expanding. I really enjoy making games, like a lot. Your donation, no matter how small, will help me to be able to make more games, and I will be forever indebted to you! <br/><form style='text-align: center' action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_blank'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='MGFEJS3VVJG6U'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>";
+		tooltipText = "Hm, ehm NOPE, jetzt nitte";
 		game.global.lockTooltip = true;
 		elem.style.left = "32.5%";
 		elem.style.top = "25%";
 		costText += "<div class='btn btn-info' onclick='unlockTooltip(); tooltip(\"hide\")'>Done</div>"
 
 	}
-	if (what == "Trustworthy Trimps"){
+	if (what == "Fleissige Trimps"){
 		tooltipText = textString;
 		game.global.lockTooltip = true;
 		costText = "<div class='maxCenter'><div class='btn btn-info' onclick='cancelTooltip()'>Sweet, thanks.</div></div>";
@@ -96,36 +96,36 @@ function tooltip(what, isItIn, event, textString) {
 		elem.style.top = "25%";
 	}
 	if (what == "Portal"){
-		tooltipText = "The portal device you found shines green in the lab. Such a familiar shade...";
+		tooltipText = "Das Portal leuchtet Grün";
 		costText = "";
 	}
 	if (what == "Repeat Map"){
-		tooltipText = "Allow the Trimps to find their way back to square 1 once they finish without your help. They grow up so fast.";
+		tooltipText = "Die Angreiffen finden so ihren weg zrück zum anfang. Sie weden so schnell gross";
 		costText = "";
 	}
 	if (what == "Reset"){
-		tooltipText = "Are you sure you want to reset? This will really actually reset your game. You won't get anything cool. It will be gone.";
+		tooltipText = "Willst du  wirklich reseten? DU kriegst nichts dafür";
 		costText="<div class='maxCenter'><div class='btn btn-info' onclick='resetGame();unlockTooltip();tooltip(\"hide\")'>Reset</div><div class='btn btn-info' onclick='cancelTooltip()'>Cancel</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "32.5%";
 		elem.style.top = "25%";
 	}
 	if (what == "Fight"){
-		tooltipText = "Send your poor Trimps to certain doom in the battlefield. You'll get cool stuff though, they'll understand.";
+		tooltipText = "Sende deine armen Trimps auf das Schlachtfeld.Du kriegst coole Dinge, sie werden das schon verstehen.";
 		costText = (game.resources.trimps.maxSoldiers > 1) ? "s" : "";
 		costText = game.resources.trimps.maxSoldiers + " Trimp" + costText;
 	}
 	if (what == "AutoFight"){
-		tooltipText = "Allow the Trimps to start fighting on their own whenever their town gets overcrowded";
+		tooltipText = "Schicke alle Trimps, die keinen Platz mehr im Dorf/Königreich haben auf das Schlachtfeld";
 		costText = "";
 	}
 	if (what == "Queue"){
-		tooltipText = "This is a building in your queue, you'll need to click \"Build\" to build it. Clicking an item in the queue will cancel it for a full refund.";
+		tooltipText = "Dies ist ein Gebäude in deiner Warteschleife, clicke auf \"Build\" um es zu bauen. Klicke auf sie um sie abzubrechen";
 		costText = "";
 	}
 	if (what == "Custom"){
-		tooltipText = "Type a number below to purchase a specific amount. (Max is 15000)<br/><br/><input type='number' id='customNumberBox' style='width: 50%' value='" + game.global.lastCustomAmt + "'></input>"
-		costText = "<div class='maxCenter'><div class='btn btn-info' onclick='numTab(5)'>Apply</div><div class='btn btn-info' onclick='cancelTooltip()'>Cancel</div></div>";
+		tooltipText = "Wieviele? (Max ist 15000)<br/><br/><input type='number' id='customNumberBox' style='width: 50%' value='" + game.global.lastCustomAmt + "'></input>"
+		costText = "<div class='maxCenter'><div class='btn btn-info' onclick='numTab(5)'>Apply</div><div class='btn btn-info' onclick='cancelTooltip()'>Abbrechen</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "32.5%";
 		elem.style.top = "25%";
@@ -138,14 +138,14 @@ function tooltip(what, isItIn, event, textString) {
 		};
 	}
 	if (what == "Export"){
-		tooltipText = "This is your save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time. <br/><br/><textarea style='width: 100%' rows='5'>" + save(true) + "</textarea>";
+		tooltipText = "Hier dein Save <br/><br/><textarea style='width: 100%' rows='5'>" + save(true) + "</textarea>";
 		costText = "<div class='maxCenter'><div class='btn btn-info' onclick='cancelTooltip()'>Got it</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "32.5%";
 		elem.style.top = "25%";
 	}
 	if (what == "Import"){
-		tooltipText = "Import your save string! It'll be fun, I promise.<br/><br/><textarea id='importBox' style='width: 100%' rows='5'></textarea>";
+		tooltipText = "Import dein Save. Es wird cool<br/><br/><textarea id='importBox' style='width: 100%' rows='5'></textarea>";
 		costText="<div class='maxCenter'><div class='btn btn-info' onclick='load(true); cancelTooltip()'>Import</div><div class='btn btn-info' onclick='cancelTooltip()'>Cancel</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "32.5%";
@@ -153,21 +153,21 @@ function tooltip(what, isItIn, event, textString) {
 	}
 	if (what == "Fire Trimps"){
 		if (!game.global.firing)
-		tooltipText = "Activate firing mode, turning the job buttons red, and forcing them to fire trimps rather than hire them. The newly unemployed Trimps will start breeding instead of working, but you will not receive a refund on resources.";
+		tooltipText = "Feuere deine Trimps um Platz zu schaffen. Du erhällst keine Ressourcen zurück";
 		else
-		tooltipText = "Disable firing mode";
+		tooltipText = "Fertig gefeuert";
 		costText = "";
 	}
 	if (what == "Maps"){
 		if (!game.global.mapsActive)
 		tooltipText = "Leave your current world temporarily and enter the Map Chamber";
 		else
-		tooltipText = "Go back to to the World Map.";
+		tooltipText = "Gehe zurück zu der Welt-Map";
 		costText = "";
 	}
 	if (isItIn == "jobs"){
 		if (game.global.firing){
-			tooltipText = "Fire a " + what + ". Refunds no resources, but frees up some workspace for your Trimps.";
+			tooltipText = "Feuere einen " + what + ". Schaft einen freien Arbeiter";
 			costText = "";
 		}
 		else{
@@ -178,7 +178,7 @@ function tooltip(what, isItIn, event, textString) {
 	if (isItIn == "buildings"){
 		if (game.global.buyAmt > 1) {
 			if (game.buildings[what].percent){
-				tooltipText += " <b>You can only purchase 1 " + what + " at a time.</b>";
+				tooltipText += " <b>DU kannst nur einen " + what + " pro Click kaufen.</b>";
 				what += " X1";
 			}
 			else {
@@ -199,7 +199,7 @@ function tooltip(what, isItIn, event, textString) {
 	}
 	if (isItIn == "upgrades"){
 		if (typeof tooltipText.split('@')[1] !== 'undefined'){
-			var prestigeCost = "<b>You may not want to do this right away.</b> Your next " + game.upgrades[what].prestiges + " will cost ";
+			var prestigeCost = "<b>Du willst dies evtl. nicht jetzt machen.</b> Dein nächstes " + game.upgrades[what].prestiges + " wird kosten. ";
 			prestigeCost += prettify(getNextPrestigeCost(what));
 			prestigeCost += (game.upgrades[what].prestiges == "Shield") ? " wood" : " metal";
 			prestigeCost += " and grant " + getNextPrestigeValue(what) + ".";
@@ -207,7 +207,7 @@ function tooltip(what, isItIn, event, textString) {
 		}
 	}
 	if (isItIn == "maps"){
-		tooltipText = "This is a map. Click it to see its properties or to run it. Maps can be run as many times as you want.";
+		tooltipText = "Dies ist die Map. Du kannst die beliebig oft verwenden";
 		costText = "";
 	}
 	var tipSplit = tooltipText.split('$');
@@ -407,7 +407,7 @@ function message(messageString, type, lootIcon) {
 	if (type == "Combat") messageString = "<span class='glyphicon glyphicon-flag'></span>" + messageString;
 	if (type == "Loot" && lootIcon) messageString = "<span class='glyphicon glyphicon-" + lootIcon + "'></span>" + messageString;
 	var addId = "";
-	if (messageString == "Game Saved!") {
+	if (messageString == "Game gesichert! (Setze hier einen coolen Text ein.") {
 		addId = " id='saveGame'";
 		if (document.getElementById('saveGame') !== null){
 			log.removeChild(document.getElementById('saveGame'));
@@ -499,7 +499,7 @@ function numTab (what) {
 			game.global.lastCustomAmt = num;
 		}
 		else {
-			message("Please use a number greater than 0!", "Notices");
+			message("Nimm was anderes als Null, du Null", "Notices");
 			return;
 		}
 	}
