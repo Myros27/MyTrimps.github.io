@@ -152,7 +152,7 @@ var toReturn = {
 			modifier: .05,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "Mit Stuff füllen! verschnellert um 5% <b>vom jetztigen Speed (diminishes)</b>. Maximum von 20 levels.",
+			tooltip: "Mit Stuff füllen! verschnellert um 5% <b>vom jetztigen Speed </b>. Maximum von 20 levels.",
 			max: 20,
 		},
 		Bait: {
