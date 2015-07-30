@@ -102,10 +102,10 @@ function save(exportThis) {
 			message("Game Saved!", "Notices");
 		}
 		else {
-			message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices");
+			message("Dein Game Speichert nicht. Machs dir von Hand.", "Notices");
 		}
 	}
-	catch(err){ message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices"); }
+	catch(err){ message("Dein Game Speichert nicht. Machs dir von Hand.", "Notices"); }
 
 }
 
@@ -128,7 +128,7 @@ function load(saveString, autoLoad) {
 			activateKongBonus(savegame.global.world);
 			return;
 		}
-        message("I'm so terribly sorry, but your previous save game (version " + savegame.global.version + ") does not work in the new version. This should be the last reset!", "Notices");
+        message("Nix geht mehr, Start von vorne! Selber Schuld", "Notices");
         return;
     } else savegame.global.version = game.global.version;
     if (typeof savegame.global !== 'undefined') {
@@ -275,7 +275,7 @@ function portalClicked() {
 	document.getElementById("portalWrapper").style.color = "black";
 	fadeIn("portalWrapper", 10);
 	document.getElementById("portalTitle").innerHTML = "Time Portal";
-	document.getElementById("portalStory").innerHTML = "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it.";
+	document.getElementById("portalStory").innerHTML = "Cool, du hast es geschafft. Jetzt brauchen wir nur noch mehr Helium, um alles was du mitnimmst gekühlt ist. Was nicht gekühlt werden kann wird wohl verglühen.";
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> Helium';
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
 	displayPortalUpgrades();
@@ -289,8 +289,8 @@ function viewPortalUpgrades() {
 	fadeIn("portalWrapper", 10);
 	document.getElementById("portalTitle").innerHTML = "View Perks";
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(game.global.heliumLeftover)) + '</span> Left Over';
-	document.getElementById("portalStory").innerHTML = "These are all of your perks! You can reset them once per run.";
-	document.getElementById("cancelPortalBtn").innerHTML = "Cancel";
+	document.getElementById("portalStory").innerHTML = "Du jetzt dürfen reset, aber nur ein mal pro Durchlauf. Ich Jedi";
+	document.getElementById("cancelPortalBtn").innerHTML = "Abbrechen";
 	document.getElementById("activatePortalBtn").style.display = "none";
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "Respec";
@@ -317,21 +317,21 @@ function activateKongBonus(oldWorld){
 	var addText = "";
 	if (oldWorld > 0){
 		helium = Math.floor(oldWorld / 2);
-		addText = "You earned " + helium + " bonus points for reaching World " + oldWorld + ".";
+		addText = "Du verdienst " + helium + " Bonus Helium weil du resettest " + oldWorld + ".";
 	}
 	else {
 		helium = game.resources.helium.owned;
-		addText = "You still have " + helium + " bonus points to spend!"
+		addText = "Du hast " + helium + " zum vergeben"
 	}
 	document.getElementById("wrapper").style.display = "none";
 	var portalWrapper = document.getElementById("portalWrapper");
 	portalWrapper.style.backgroundColor = "black";
 	portalWrapper.style.color = "white";
-	document.getElementById("portalTitle").innerHTML = "Beta Bonus";
-	document.getElementById("portalStory").innerHTML = "Thank you so much for helping test the beta version of Trimps. All of the support and feedback was amazing! This version still needs some feedback and tweaks before it will be perfect, but saves will not be purposely reset again. Enjoy! " + addText;
+	document.getElementById("portalTitle").innerHTML = "Beta Bonus o/";
+	document.getElementById("portalStory").innerHTML = "UUps " + addText;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + helium + '</span> Bonus Points';
-	document.getElementById("cancelPortalBtn").innerHTML = "No Thanks";
-	document.getElementById("activatePortalBtn").innerHTML = "Finished";
+	document.getElementById("cancelPortalBtn").innerHTML = "Nein Danke";
+	document.getElementById("activatePortalBtn").innerHTML = "Beendet";
 		document.getElementById("activatePortalBtn").style.display = "inline-block";
 
 	fadeIn("portalWrapper", 10);
@@ -346,7 +346,7 @@ function checkOfflineProgress(){
 	var dif = rightNow - game.global.lastOnline;
 	dif = Math.floor(dif / 1000);
 	if (dif < 60) return;
-	var textString = "While you were away, your Trimps were able to produce ";
+	var textString = "Du warst weg. Wir produzierten ";
 	var compatible = ["Farmer", "Lumberjack", "Miner"];
 	for (var x = 0; x < compatible.length; x++){
 		var job = game.jobs[compatible[x]];
@@ -387,7 +387,7 @@ function respecPerks(){
 	document.getElementById("respecPortalBtn").style.display = "none";
 	document.getElementById("activatePortalBtn").innerHTML = "Confirm";
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
-	document.getElementById("portalStory").innerHTML = "You can only respec once per run. Clicking cancel will not consume this use.";
+	document.getElementById("portalStory").innerHTML = "Du kannst die Punkte nur ein mal neu vergeben";
 	document.getElementById("portalTitle").innerHTML = "Respec Perks";
 }
 
@@ -403,9 +403,9 @@ function activateClicked(){
 	}
 	var newText = "";
 	if (game.global.kongBonusMode){
-		newText = "All set?";
+		newText = "Alles Gesetzt?";
 	}
-	else newText = "Are you sure you want to enter the portal? You will lose all progress other than the portal-compatible upgrades on this page. Who knows where or when it will send you.";
+	else newText = "Sicher, das du vieles verlieren willst?";
 	newText += "<br/><div class='btn btn-info activatePortalBtn' onclick='activatePortal()'>Let's do it.</div>"
 	document.getElementById("portalStory").innerHTML = newText;
 }
@@ -466,14 +466,14 @@ function activatePortal(){
 	resetGame(true);
 	game.global.totalPortals++;
 	document.getElementById("portalUpgradesHere").innerHTML = "";
-	message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
+	message("Ein grünner Schimmer erscheint aus dem nicht. Du bist hungerig... Story story story blablabla Wer het luscht do no en coole text iifalle zloo?", "Story");
 }
 
 function cancelPortal(keep){
 	if (game.global.kongBonusMode){
 		game.global.kongBonusMode = false;
 		if (!keep) resetGame();		
-		message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
+		message("Ein grünner Schimmer erscheint aus dem nicht. Du bist hungerig... Story story story blablabla Wer het luscht do no en coole text iifalle zloo?", "Story");
 	}
 	game.global.viewingUpgrades = false;
 	game.global.respecActive = false;
@@ -578,10 +578,10 @@ function fireMode(noChange) {
     var elem = document.getElementById("fireBtn");
     if (game.global.firing) {
         elem.style.background = "rgba(255,0,0,0.5)";
-        elem.innerHTML = "Firing";
+        elem.innerHTML = "Gefeuert";
     } else {
         elem.style.background = "rgba(255,255,255,0.25)";
-        elem.innerHTML = "Fire";
+        elem.innerHTML = "Feuern";
     }
     tooltip("Fire Trimps", null, "update");
 
@@ -607,17 +607,17 @@ function setGatherTextAs(what, on) {
     var trimpTrapText = '(<span id="trimpTrapText">1</span>)';
     switch (what) {
     case "food":
-        return (on) ? "Gathering" : "Gather";
+        return (on) ? "sammle" : "Sammeln";
     case "wood":
-        return (on) ? "Chopping" : "Chop";
+        return (on) ? "hacke" : "Hacken";
     case "metal":
-        return (on) ? "Mining" : "Mine";
+        return (on) ? "mine (WFT)" : "Minen";
     case "science":
-        return (on) ? "Researching" : "Research";
+        return (on) ? "forsche" : "Erforschen";
     case "buildings":
-        return (on) ? "Building" : "Build";
+        return (on) ? "baue" : "Bauen";
     case "trimps":
-        return (on) ? ("Trapping " + trimpTrapText) : ("Check Traps " + trimpTrapText);
+        return (on) ? ("Falle " + trimpTrapText) : ("tut guck @ Fallen " + trimpTrapText);
     }
 }
 
@@ -818,7 +818,7 @@ function toggleAutoTrap(updateOnly) {
 	elem.className = "workBtn pointer noselect";
 	if (!game.global.trapBuildAllowed){
 		elem.style.display = "none";
-		elem.innerHTML = "Traps Off";
+		elem.innerHTML = "Autofallenproduktion aus (länger gings kaum)";
 		elem.className += " dangerColor";
 		return;
 	}
@@ -826,11 +826,11 @@ function toggleAutoTrap(updateOnly) {
 	if (!updateOnly) game.global.trapBuildToggled = !game.global.trapBuildToggled;
 	if (game.global.trapBuildToggled){
 		elem.className += " successColor";
-		elem.innerHTML = "Traps On";
+		elem.innerHTML = "Autofallenproduktion an";
 		return;
 	}
 	elem.className += " dangerColor";
-	elem.innerHTML = "Traps Off";
+	elem.innerHTML = "Autofallenproduktion aus";
 }
 
 function buildBuilding(what) {
@@ -957,7 +957,7 @@ function checkJobItem(what, take, costItem, amtOnly) {
 
 function buyUpgrade(what) {
     if (what == "Coordination" && (game.resources.trimps.max < (game.resources.trimps.maxSoldiers * 3))) {
-        message("You should probably expand your territory a bit first. You need enough room for " + prettify(game.resources.trimps.maxSoldiers * 3) + " max Trimps." , "Notices");
+        message("Dat geht ned. Kaufe mehr Häuser, etc. " + prettify(game.resources.trimps.maxSoldiers * 3) + " max Trimps." , "Notices");
         return;
     }
     var upgrade = game.upgrades[what];
@@ -1100,9 +1100,9 @@ function buyMap() {
 		
 		createMap(newLevel);
 		}
-		else message("You must create a map between level 6 and your highest zone, " + game.global.world + ".", "Notices");
+		else message("Du musst eine MAp herstellen zwischen Lv6 und deinen jetzigen Level, " + game.global.world + ".", "Notices");
 	}
-	else message("You can't afford this map! You need " + prettify(cost) + " fragments.", "Notices");
+	else message("Nicht herstellbar, du brauchst " + prettify(cost) + " fragments.", "Notices");
 }
 
 function createMap(newLevel) {
@@ -1122,7 +1122,7 @@ function createMap(newLevel) {
         size: Math.floor(getRandomMapValue("size")),
         loot: getRandomMapValue("loot")
     });
-    message("You just made " + mapName[0] + "!", "Loot", "th-large");
+    message("DU hast " + mapName[0] + "hergestellt !", "Loot", "th-large");
     unlockMap(game.global.mapsOwnedArray.length - 1);
 }
 
@@ -1538,7 +1538,7 @@ function repeatClicked(updateOnly){
 
 function selectMap(mapId, force) {
     if (!force && game.global.currentMapId !== "") {
-        message("You must finish or recycle your current map before moving on.", "Notices");
+        message("Du musst die aktuelle Map beenden oder recyclen.", "Notices");
         return;
     }
     var map = getMapIndex(mapId);
