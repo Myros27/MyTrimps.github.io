@@ -41,8 +41,8 @@ var toReturn = {
 		soldierCurrentAttack: 0,
 		soldierCurrentBlock: 0,
 		fighting: false,
-		health: 50,
-		attack: 6,
+		health: 40,
+		attack: 7,
 		block: 0,
 		autoBattle: false,
 		autoCraftModifier: 0,
@@ -152,7 +152,7 @@ var toReturn = {
 			modifier: .05,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "Study up on muscle training exercises to help condition Trimps to be more quick and agile. Each level decreases the time between attacks by 5% <b>of current speed (diminishes)</b>. Maximum of 20 levels.",
+			tooltip: "Mit Stuff füllen! verschnellert um 5% <b>vom jetztigen Speed (diminishes)</b>. Maximum von 20 levels.",
 			max: 20,
 		},
 		Bait: {
@@ -160,7 +160,7 @@ var toReturn = {
 			modifier: 1,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "A few of these in your traps are sure to bring in extra Trimps. Each level allows traps to catch $modifier$ extra Trimp.",
+			tooltip: "+1 Trimp pro Falle",
 		},
 		
 
@@ -172,7 +172,7 @@ var toReturn = {
 			modifier: 1,
 			priceBase: 3,
 			heliumSpent: 0,
-			tooltip: "Practicing aggressive strategizing allows you to earn $modifier$ extra max population from each battle territory bonus.",
+			tooltip: "Gibt dir mehr Platz pro gefundenen Platz auf der Map (+ $modifier$ )",
 		},
 
 		//breed main
@@ -181,13 +181,13 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 3,
 			heliumSpent: 0,
-			tooltip: "Bring some pheromones with you to ensure that your Trimps will permanantly breed 10% faster.",
+			tooltip: "Lässt die Trimps mehr Poppen. Nimmt ihnen die Kondome weg. Macht mehr sterbenswillige Kinder",
 		},
 		//trapThings main
 		Packrat: {
 			modifier: 0.05,
 			heliumSpent: 0,
-			tooltip: "Study the ancient, secret Trimp methods of hoarding. Each level increases the amount of stuff you can shove in each Barn, Shed, and Forge by 5%.",
+			tooltip: "Mehr Platz für Ressourcen. Erhöht um 5%.",
 			priceBase: 3,
 			level: 0,
 		},
@@ -196,7 +196,7 @@ var toReturn = {
 		Motivation: {
 			modifier: 0.05,
 			heliumSpent: 0,
-			tooltip: "Practice public speaking with your trimps. Each level increases the amount of resources that workers produce by 5%.",
+			tooltip: "Lässt die Trimps mehr arbeiten um 5%.",
 			priceBase: 2,
 			level: 0,
 		},
@@ -208,14 +208,14 @@ var toReturn = {
 			modifier: .05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Trimps learn through example. Spending some time bench pressing dead Elephimps should inspire any future Trimps to become stronger too. Adds 5% attack permanently to your Trimps.",
+			tooltip: "Trimps machen 5% mehr Schaden",
 		},
 		//startFight main
 		Toughness: {
 			modifier: .05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Pay your Trimps to knock you around a little bit. By learning to not be such a wuss, your Trimps will be less wussy as well. Adds 5% health permanently to your Trimps.",
+			tooltip: "Bringe deine Trimps dazu mehr Schmerzen zu ertragen. 5% mehr Leben, bevor sie sterben.",
 			level: 0,
 		},
 		//These are gonna be harder than I thought. There's a lot of checks to prices.
@@ -233,7 +233,7 @@ var toReturn = {
 			modifier: .05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Walk back through the empty zones, learning how to milk them for every last drop. Each level permanently increases the amount of resources gained from battle by 5%.",
+			tooltip: "DU erhällst im Kampf 5% mehr Loot.",
 			level: 0,
 		},
 	},
@@ -264,8 +264,8 @@ var toReturn = {
 		
 	},
 	
-	trimpDeathTexts: ["ceased to be", "bit the dust", "took a dirt nap", "expired", "kicked the bucket"],
-	badGuyDeathTexts: ["slayed", "killed", "destroyed"],
+	trimpDeathTexts: ["wurde ausradiert", "Füge mehr coole Todestexte ein", "hat in das gras gebissen", "nimmt einen dreckigen schlaff", "liegt unter der erde", "expired", "sieht den rasen von unten"],
+	badGuyDeathTexts: ["gekillt", "getötet", "gekillt", "gekillt", "gekillt", "geschlagen", "geschlagen", "geschlagen", "geschändet", "zerstört", "zerstört"],
 	
 	settings: {
 		speed: 10,
@@ -318,8 +318,8 @@ var toReturn = {
 	equipment: {
 		Shield: {
 			locked: 1,
-			tooltip: "A big, wooden shield. Adds $healthCalculated$ health to each soldier per level.",
-			blocktip: "A big, wooden shield. Adds $blockCalculated$ block to each soldier per level.",
+			tooltip: "Ein grosses Holzschild. Fügt $healthCalculated$ HP pro Trimp hinzu.",
+			blocktip: "Ein grosses Holzschild. Fügt $blockCalculated$ BLOCK pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -335,7 +335,7 @@ var toReturn = {
 		},
 		Dagger: {
 			locked: 1,
-			tooltip: "Better than nothing. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "Besser als nichts. Fügt $attackCalculated$ Angriff pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -348,7 +348,7 @@ var toReturn = {
 		},
 		Boots: {
 			locked: 1,
-			tooltip: "At least their feet will be safe. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "Jetzt sind wenigstens ihre Füsse sicher. Fügt $healthCalculated$ HP pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -362,7 +362,7 @@ var toReturn = {
 		//2
 		Mace: {
 			locked: 1,
-			tooltip: "It's kind of heavy for your Trimps, but they'll manage. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "Es ist ein wenig schwer für Trimps, aber ich denke sie werden es schaffen. Fügt $attackCalculated$ Angriff pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -375,7 +375,7 @@ var toReturn = {
 		},
 		Helmet: {
 			locked: 1,
-			tooltip: "Provides a decent amount of protection to the Trimps' heads, adding $healthCalculated$ health to each soldier per level.",
+			tooltip: "Warum auch immer man den Kopf eines Trimps schützen will. Fügt $healthCalculated$ HP pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -389,7 +389,7 @@ var toReturn = {
 		//3
 		Polearm: {
 			locked: 1,
-			tooltip: "This thing is big and pointy. It adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "Das ist gross und nützlich. $attackCalculated$ Angriff pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -402,7 +402,7 @@ var toReturn = {
 		},
 		Pants: {
 			locked: 1,
-			tooltip: "Pants designed specificially for the little Trimps! Adds $healthCalculated$ health to each soldier per level.",
+			tooltip: "Hosen, extra für Trimps! Fügt $healthCalculated$ Angriff pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -416,7 +416,7 @@ var toReturn = {
 		//4
 		Battleaxe: {
 			locked: 1,
-			tooltip: "This weapon is pretty intimidating, but your Trimps think they can handle it. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "Diese Waffe ist zu schwer für Trimps, aber sie denken sie nützlich gebrauchen zu können. Fügt $attackCalculated$ Angriff pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -429,7 +429,7 @@ var toReturn = {
 		},
 		Shoulderguards: {
 			locked: 1,
-			tooltip: "These shoulderguards will help keep your Trimps' necks and shoulders safe, and they look cool too. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "Das sieht vorallem mal Cool aus, bringen tut es nur wenig. Fügt $healthCalculated$ HP pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -443,7 +443,7 @@ var toReturn = {
 		//5
 		Greatsword: {
 			locked: 1,
-			tooltip: "This sword looks sweet. Seriously, if you could see it you'd think it looked sweet. Trust me. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "Dieses Schwert sieht bei Trimps süss aus. Wenn du es nur sehen könntest. Es sieht wirklich zu süss aus. Bis es Blutig ist. Fügt $attackCalculated$ Angriff pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -456,7 +456,7 @@ var toReturn = {
 		},
 		Breastplate: {
 			locked: 1,
-			tooltip: "Some real, heavy duty armor. Everyone looks badass in heavy duty armor. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: " Das sieht Mönströs aus. Fügt $healthCalculated$ HP pro Trimp hinzu.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -532,7 +532,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("food", .5, level, true);
-				message("<span class='glyphicon glyphicon-apple'></span>That Chickimp dropped " + prettify(amt) + " food!", "Loot");
+				message("<span class='glyphicon glyphicon-apple'></span>Dieses Chickimp hinterlässt " + prettify(amt) + " food!", "Loot");
 			}
 		},
 		Onoudidimp: {
@@ -548,7 +548,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("wood", .5, level, true);
-				message("<span class='glyphicon glyphicon-tree-deciduous'></span>That Grimp dropped " + prettify(amt) + " wood!", "Loot");
+				message("<span class='glyphicon glyphicon-tree-deciduous'></span>Der Grimp hinerlässt " + prettify(amt) + " wood!", "Loot");
 			}
 		},
 		Seirimp: {
@@ -558,7 +558,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .5, level, true);
-				message("<span class='glyphicon glyphicon-fire'></span>That Seirimp dropped " + prettify(amt) + " metal! Neat-O.", "Loot");
+				message("<span class='glyphicon glyphicon-fire'></span>Die Seirimp hinterlässt " + prettify(amt) + " metal! Neat-O.", "Loot");
 			}
 		},
 		Blimp: {
@@ -575,7 +575,7 @@ var toReturn = {
 				message("<span class='glyphicon glyphicon-piggy-bank'></span>That Blimp dropped " + prettify(amt) + " Food, Wood and Metal! That should be useful.", "Loot");
 				if (game.global.portalActive){
 					amt = rewardResource("helium", 1, level);
-					message("<span class='glyphicon glyphicon-oil'></span>You were able to extract " + prettify(amt) + " Helium canisters from that Blimp!", "Story"); 
+					message("<span class='glyphicon glyphicon-oil'></span>Wir können " + prettify(amt) + " Helium Kanisters aus diesem Blimp gewinnen!", "Story"); 
 				}
 			}
 		},
@@ -668,17 +668,17 @@ var toReturn = {
 			filterUpgrade: true,
 			canRunOnce: true,
 			fire: function () {
-				message("Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a green, shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'", "Story");
+				message("Du hast grad das Megaviech gekillt. Erzähl da jar keinem. Als er in die unendlichkeit zerschmeltzt, bemerkst du eine grüne, seltsame Box auf dem Boden. Auf der Box stehen in kleinen Buchstaben etwas geschrieben. Als du näher kommst erkennst du die Worte TIME MASCHINE, THIS SIDE UP'", "Story");
 				game.global.portalActive = true;
 				fadeIn("helium", 10);
 				game.resources.helium.owned += 30;
-				message("<span class='glyphicon glyphicon-oil'></span>You were able to extract 30 Helium canisters from that Blimp! Now that you know how to do it, you'll be able to extract helium from normal Blimps.", "Story"); 
+				message("<span class='glyphicon glyphicon-oil'></span>Wir haben 30 Helium aus dem Blimp extrahieren können und wissen nun wie das geht.", "Story"); 
 				fadeIn("portalBtn", 10);
 			}
 		},
 		Shieldblock: {
 			world: 10,
-			message: "That thing dropped a book. Doesn't look like an ordinary book. Looks... blockier...",
+			message: "Das Ding hat ein Buch hinterlassen. Sieht nach einem gewöndlichen Buch aus. Aber irgendwie Blockig",
 			level: "last",
 			icon: "book",
 			filterUpgrade: true,
@@ -689,7 +689,7 @@ var toReturn = {
 		},
 		Bounty: {
 			world: 15,
-			message: "It's all shiny and stuff. You're pretty sure you've never seen a book this shiny.",
+			message: "Golden Verziehrt. Nie gesehen.",
 			level: "last",
 			icon: "book",
 			filterUpgrade: true,
@@ -701,7 +701,7 @@ var toReturn = {
 		},
 		Supershield: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Shield!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 1,
@@ -711,7 +711,7 @@ var toReturn = {
 		},
 		Dagadder: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Dagger!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 1,
@@ -721,7 +721,7 @@ var toReturn = {
 		},
 		Bootboost: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Boots!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 1,
@@ -731,7 +731,7 @@ var toReturn = {
 		},
 		Megamace: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Mace!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 2,
@@ -741,7 +741,7 @@ var toReturn = {
 		},
 		Hellishmet: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Helmet!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 2,
@@ -751,7 +751,7 @@ var toReturn = {
 		},		
 		Polierarm: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Polearm!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 3,
@@ -761,7 +761,7 @@ var toReturn = {
 		},
 		Pantastic: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Pants!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 3,
@@ -771,7 +771,7 @@ var toReturn = {
 		},
 		Axeidic: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Battleaxe!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 4,
@@ -781,7 +781,7 @@ var toReturn = {
 		},
 		Smoldershoulder: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Shoulderguards!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 4,
@@ -791,7 +791,7 @@ var toReturn = {
 		},
 		Greatersword: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Greatsword!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 5,
@@ -801,7 +801,7 @@ var toReturn = {
 		},
 		Bestplate: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Breastplate!",
+			message: "Ich denke, dieses Buch wird mir sagen, wie ich Dinge Upgraden kann",
 			level: "last",
 			icon: "book",
 			last: 5,
@@ -811,7 +811,7 @@ var toReturn = {
 		},
 		TheBlock: {
 			world: -1,
-			message: "Holy cowimp! A unique map!",
+			message: "Holy Cowimp! Eine einzigartige Map",
 			level: [10, 20],
 			icon: "th-large",
 			startAt: 10,
@@ -834,12 +834,12 @@ var toReturn = {
 					noRecycle: true,
 				});
 				unlockMap(game.global.mapsOwnedArray.length - 1);
-				message("You just made a map to The Block!", "Notices");
+				message("Du hast den Block geschafft", "Notices");
 			}
 		},
 		TheWall: {
 			world: -1,
-			message: "Oh snap! Another unique map!",
+			message: "Eine andere Map",
 			level: [10, 20],
 			icon: "th-large",
 			startAt: 15,
@@ -859,14 +859,14 @@ var toReturn = {
 					noRecycle: true,
 				});
 				unlockMap(game.global.mapsOwnedArray.length - 1);
-				message("You just made a map to The Wall!", "Loot", "th-large");
+				message("Du hast die Wall geschafft", "Loot", "th-large");
 			}
 		},
 		
 		Mansion: {
 			world: -1,
 			startAt: 8,
-			message: "You found plans for a Mansion! Your Trimps will be pretty stoked",
+			message: "Du hast Pläne für ein Haus gefunden. Die Trimps werden glücklich sein",
 			level: [10, 20],
 			icon: "home",
 			canRunOnce: true,
@@ -877,7 +877,7 @@ var toReturn = {
 		Hotel: {
 			world: -1,
 			startAt: 14,
-			message: "You found plans for a hotel! (A decent hotel, too)",
+			message: "Du hast beim Plan für das Haus auf der Rückseite einen Plan für ein Hotel gefunden",
 			level: [10, 20],
 			icon: "home",
 			canRunOnce: true,
@@ -888,7 +888,7 @@ var toReturn = {
  		UberHotel: {
 			world: -1,
 			startAt: 40,
-			message: "You found a book that will teach you how to improve your hotels!",
+			message: "Du hast ein Plan für ein noch grösseres Hotel gefunden",
 			level: [5, 10],
 			icon: "book",
 			canRunOnce: true,
@@ -899,7 +899,7 @@ var toReturn = {
 		Resort: {
 			world: -1,
 			startAt: 25,
-			message: "You found plans for a huge resort!",
+			message: "Lass uns ein Resort gründen",
 			level: [10, 20],
 			icon: "home",
 			canRunOnce: true,
@@ -910,7 +910,7 @@ var toReturn = {
 		Gateway: {
 			world: -1,
 			startAt: 30,
-			message: "You found a key to Dimension ZZZ!",
+			message: "Du hast den Schlüssel für die Misteriöse Tür gefunden. Dahinter verbirgt sich Dimension ZZZ!",
 			level: [10, 20],
 			icon: "cog",
 			canRunOnce: true,
@@ -922,7 +922,7 @@ var toReturn = {
 		Wormhole: {
 			world: -1,
 			startAt: 35,
-			message: "You found a crystal powerful enough to create wormholes!",
+			message: "Du hast überreste von Cern gefunden. Lass uns wurmlöcher kreiren",
 			level: [10, 20],
 			icon: "link",
 			canRunOnce: true,
@@ -934,7 +934,7 @@ var toReturn = {
 		Trapstorm: {
 			world: -1,
 			startAt: 10,
-			message: "A book that teaches your Foremen a new skill. Riveting.",
+			message: "Ein Buch, was irgendwas macht. Bücher sind cool.",
 			level: [5, 15],
 			icon: "book",
 			canRunOnce: true,
@@ -1004,77 +1004,77 @@ var toReturn = {
 	//More important stuff should be towards the top in case of bailouts
 	worldUnlocks: {
 		Shield: {
-			message: "You found plans for a shield! It even tells you how to upgrade it, if you have enough wood. That was nice of that bad guy.",
+			message: "Lass uns ein Schild machen aus Holz. Besser als nichts.",
 			world: 1,
 			title: "New Armor",
 			level: 4,
 			icon: "question-sign"		
 		},
 		Boots: {
-			message: "You found plans for Boots! Swell!",
+			message: "Du hast Pläne gefunden",
 			world: 1,
 			level: 49,
 			title: "New Armor",
 			icon: "question-sign"
 		},
 		Dagger: {
-			message: "You found plans for a Dagger! Fancy!",
+			message: "Du hast Pläne gefunden",
 			world: 1,
 			level: 19,
 			title: "New Weapon",
 			icon: "question-sign"
 		},
 		Mace: {
-			message: "You found plans for a mace!",
+			message: "Du hast Pläne gefunden",
 			world: 2,
 			level: 19,
 			title: "New Weapon",
 			icon: "question-sign"
 		},
 		Helmet: {
-			message: "You found plans for a helmet!",
+			message: "Du hast Pläne gefunden",
 			world: 2,
 			level: 49,
 			title: "New Armor",
 			icon: "question-sign"
 		},
 		Polearm: {
-			message: "You found plans for a Polearm!",
+			message: "Du hast Pläne gefunden",
 			world: 3,
 			level: 19,
 			title: "New Weapon",
 			icon: "question-sign"
 		},
 		Pants: {
-			message: "You found plans for Pants!",
+			message: "Du hast Pläne gefunden",
 			world: 3,
 			level: 49,
 			title: "New Armor",
 			icon: "question-sign"
 		},
 		Battleaxe: {
-			message: "You found plans for a Battleaxe!",
+			message: "Du hast Pläne gefunden",
 			world: 4,
 			level: 19,
 			title: "New Weapon",
 			icon: "question-sign"
 		},
 		Shoulderguards: {
-			message: "You found plans for Shoulderguards!",
+			message: "Du hast Pläne gefunden",
 			world: 4,
 			level: 49,
 			title: "New Armor",
 			icon: "question-sign"
 		},
 		Greatsword: {
-			message: "You found plans for a Greatsword!",
+			message: "Du hast Pläne gefunden",
 			world: 5,
 			level: 19,
 			title: "New Weapon",
 			icon: "question-sign"
 		},
 		Breastplate: {
-			message: "You found plans for a Breastplate!",
+			message: "Du hast Pläne gefunden",
 			world: 5,
 			level: 49,
 			title: "New Armor",
@@ -1082,7 +1082,7 @@ var toReturn = {
 		},
 		//Non Equipment
 		Bloodlust: {
-			message: "You found an ancient book titled Bloodlust. You should look at it or something.",
+			message: "Du hast Pläne gefunden",
 			world: 1,
 			level: 9,
 			icon: "book",
@@ -1092,7 +1092,7 @@ var toReturn = {
 			}
 		},
 		Efficiency: {
-			message: "Hey, this book might be for you!",
+			message: "Du hast Pläne gefunden",
 			world: -2,
 			level: 9,
 			icon: "book",
@@ -1102,7 +1102,7 @@ var toReturn = {
 			}
 		},
 		Gym: {
-			message: "Hey look, plans for a new Gym!",
+			message: "Du hast Pläne gefunden",
 			world: 2,
 			level: 4,
 			icon: "home",
@@ -1113,7 +1113,7 @@ var toReturn = {
 			}
 		},
 		TrainTacular: {
-			message: "This book is for your Trainers!",
+			message: "Trainerpläne? WTF",
 			world: -5,
 			level: 9,
 			icon: "book",
@@ -1123,7 +1123,7 @@ var toReturn = {
 			}
 		},
  		Potency: {
-			message: "Also known as the Trimpma Sutra, this book will help your Trimps make more Trimps",
+			message: "Bekannt als Trimpma Sutra wird dieses Buch helfen mehr Trimps zu Generieren",
 			world: -5,
 			level: 29,
 			icon: "book",
@@ -1133,7 +1133,7 @@ var toReturn = {
 		}, 
 		//19 is for Armor
 		Miner: {
-			message: "You found an ancient book about mining. With some research you should be able to teach the Trimps to mine!",
+			message: "Ein Miningbuch",
 			world: 1,
 			level: 29,
 			icon: "book",
@@ -1143,78 +1143,78 @@ var toReturn = {
 			}
 		},
 		Trainer: {
-			message: "You found an book about proper physical training!",
+			message: "Muskeln überall",
 			world: 3,
 			level: 3, 
 			icon: "book",
-			title: "Step Up Your Block GAME",
+			title: "Lass uns Trainieren",
 			fire: function () {
 				unlockUpgrade("Trainers");
 			}		
 		},
 		Scientist: {
-			message: "You found a book about Einstrimp!",
+			message: "Ein Buch über Einstrimp!",
 			world: 1,
 			level: 39,
 			icon: "book",
-			title: "Scientist",
+			title: "Forscher",
 			fire: function () {
 				unlockUpgrade("Scientists");
 			}
 		},
 		Speedscience: {
-			message: "You found a book called Speedscience! What do you think it could possibly do?!",
+			message: "Schnellwissenschaft?!",
 			world: -2,
 			level: 39,
 			icon: "book",
-			title: "Speedscience",
+			title: "Schnellwissenschaft",
 			fire: function () {
 				unlockUpgrade("Speedscience");
 			}
 		},
 		Explorer: {
-			message: "You found a book detailing the intricacies of solo exploration!",
+			message: "Ein Buch welches den Trimps sagt immer der Nase nachzulaufen. Warum bin ich nicht schon früher drauf gekommen?",
 			world: 15,
 			level: 39,
 			icon: "book",
-			title: "Explorer",
+			title: "Entdecker",
 			fire: function () {
 				if (game.upgrades.Explorers.allowed === 0) unlockUpgrade("Explorers");
 			}
 		},
 		//49 is for weapon
 		Speedfarming:{
-			message: "You found a book called Speedfarming! It looks delicious!",
+			message: "Ein Buch über schnelleren Anbau, direckt aus China",
 			world: -1,
 			level: 79,
 			icon: "book",
-			title: "Speedfarming",
+			title: "Schnellanbau",
 			fire: function () {
 				unlockUpgrade("Speedfarming");
 			}
 		},
 		Speedlumber: {
-			message: "You found a book called Speedlumber! It looks long.",
+			message: "Ein Buch über Angst und deren Motivation",
 			world: -1,
 			level: 69,
 			icon: "book",
-			title: "Speedlumber",
+			title: "Schnellhacker",
 			fire: function () {
 				unlockUpgrade("Speedlumber");
 			}
 		},
 		Speedminer: {
-			message: "You found a book called Speedminer!",
+			message: "Cool text hier einfügen",
 			world: -1,
 			level: 59,
 			icon: "book",
-			title: "Speedminer",
+			title: "Schnellminer",
 			fire: function() {
 				unlockUpgrade("Speedminer");
 			}
 		},
 		Foreman: {
-			message: "You found a crafting foreman! He will build buildings automatically for you!",
+			message: "Du hast einen begabteren Trimp gefunden der bauen kann.",
 			world: -1,
 			level: 89,
 			icon: "user",
@@ -1240,22 +1240,22 @@ var toReturn = {
 			icon: "eye-open",
 			title: "The End Of The Road",
 			fire: function () {
-				message(	"You look down and see a green gem that seems to stare back. You pick it up and feel adrenaline surge through your body. Probably best to bring this back to the lab for some research.", "Story");
+				message(	"Du findest einen grünnen Diamant", "Story");
 				unlockUpgrade("Anger");
 			}
 		},
 		Coordination: {
-			message: "You find an ancient book titled Coordination. Exciting.",
+			message: "Sei stark",
 			world: -1,
 			level: 99,
 			icon: "book",
-			title: "Coordination",
+			title: "Fitness",
 			fire: function() {
 				unlockUpgrade("Coordination");
 			}
 		},
 		Blockmaster: {
-			message: "You found a book discussing tactics for better blocking!",
+			message: "Du findest ein Buch über besseres Blocken",
 			world: 4,
 			level: 29,
 			icon: "book",
@@ -1265,7 +1265,7 @@ var toReturn = {
 			}
 		},
 		Egg: {
-			message: "This egg looks crazy. Seriously, guys, come look at this crazy egg!",
+			message: "Ein seltsames Ei. Was soll ich damit bloss anfangen",
 			world: 17,
 			level: 55,
 			icon: "record",
@@ -1282,7 +1282,7 @@ var toReturn = {
 				game.global.mapsUnlocked = true;
 				unlockMapStuff();
 				createMap();
-				message("You found your first map! Travel to your map chamber to check it out.", "Story");
+				message("Eine Map, mal schauen.", "Story");
 			}
 		},
 		//Multiples
@@ -1294,7 +1294,7 @@ var toReturn = {
 			icon: "th",
 			fire: function() {
 				var amt = rewardResource("fragments");
-				message("<span class='glyphicon glyphicon-th'></span>You found " + prettify(amt) + " map fragments!", "Loot");
+				message("<span class='glyphicon glyphicon-th'></span>Du findest " + prettify(amt) + " map Fragmente!", "Loot");
 			}
 		},
 		//portal Trumps
@@ -1306,7 +1306,7 @@ var toReturn = {
 			fire: function () {
 				var amt = 5 + (game.portal.Trumps.modifier * game.portal.Trumps.level);
 				game.resources.trimps.max += amt;
-				message("<span class='glyphicon glyphicon-gift'></span>You have cleared enough land to support " + amt + " more Trimps!", "Loot");
+				message("<span class='glyphicon glyphicon-gift'></span>Du hast genug LAnd für " + amt + " mehr Trimps!", "Loot");
 			}
 		},
 		fruit: {
@@ -1316,7 +1316,7 @@ var toReturn = {
 			repeat: 9,
 			fire: function (level) {
 				var amt = rewardResource("food", .5, level);
-				message("<span class='glyphicon glyphicon-apple'></span>That guy just left " + prettify(amt) + " food on the ground! Sweet!", "Loot");
+				message("<span class='glyphicon glyphicon-apple'></span>Der Typ lässt " + prettify(amt) + " Essen auf dem Boden. Sweet!", "Loot");
 			}
 		},
 		groundLumber: {
@@ -1326,7 +1326,7 @@ var toReturn = {
 			repeat: 8,
 			fire: function (level) {
 				var amt = rewardResource("wood", .5, level);
-				message("<span class='glyphicon glyphicon-tree-deciduous'></span>You just found " + prettify(amt) + " wood! That's pretty neat!", "Loot");
+				message("<span class='glyphicon glyphicon-tree-deciduous'></span>DU findest " + prettify(amt) + " Holz! Cool!", "Loot");
 			}
 		},
 		freeMetals: {
@@ -1336,7 +1336,7 @@ var toReturn = {
 			repeat: 6,
 			fire: function (level) {
 				var amt = rewardResource("metal", 0.5, level);
-				message("<span class='glyphicon glyphicon-fire'></span>You just found " + prettify(amt) + " bars of metal! Convenient!", "Loot");
+				message("<span class='glyphicon glyphicon-fire'></span>Es hat " + prettify(amt) + " Metallbaren auf dem Boden! Woher das bloss kommt!", "Loot");
 			}
 		}
 	},
@@ -1347,7 +1347,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 5,
-			tooltip: "Each Trap allows you to catch one thing",
+			tooltip: "Jede Falle erlaubt dir etwas zu fangen",
 			cost: {
 				food: 10,
 				wood: 10
@@ -1361,7 +1361,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 10,
-			tooltip: "Has room for $incby$ more lovely Trimps, and enough workspace for half of them.",
+			tooltip: "Es hat Raum für $incby$ mehr Trimps. Männer (50%) arbeiten, der Rest produziert nachschub fürs Schlachtfeld.",
 			cost: {
 				food: [125, 1.24],
 				wood: [75, 1.24],
@@ -1376,7 +1376,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 10,
-			tooltip: "Increases your maximum food by 100%",
+			tooltip: "100% mehr Platz für Essen",
 			percent: true,
 			cost: {
 				food: function () {
@@ -1394,7 +1394,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			percent: true,
-			tooltip: "Increases your maximum wood by 100%",
+			tooltip: "100% mehr Platz für Holz",
 			cost: {
 				wood: function () {
 					return calculatePercentageBuildingCost("Shed", "wood", .25);
@@ -1411,7 +1411,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			percent: true,
-			tooltip: "Increases your maximum metal by 100%",
+			tooltip: "100% mehr Platz für Metall",
 			cost: {
 				metal: function () {
 					return calculatePercentageBuildingCost("Forge", "metal", .25);
@@ -1427,7 +1427,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 20,
-			tooltip: "A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by $incby$.",
+			tooltip: "Ein Gebäude um zu trainieren. Trimps können nachher $incby$ Schaden mehr Blocken.",
 			cost: {
 				wood: [400, 1.185]
 			},
@@ -1441,7 +1441,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 20,
-			tooltip: "A better house for your Trimps! Each house supports up to $incby$ more Trimps.",
+			tooltip: "EIn Haus für Trimps. Es hat Platz für $incby$ mehr Trimps.",
 			cost: {
 				food: [1500, 1.22],
 				wood: [750, 1.22],
@@ -1457,7 +1457,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 60,
-			tooltip: "A pretty sick mansion for your Trimps to live in. Each Mansion supports $incby$ more Trimps.",
+			tooltip: "Ein Haus, welches es erlaubt $incby$ mehr Trimps zu haben.",
 			cost: {
 				gems: [100, 1.2],
 				wood: [2000, 1.2],
@@ -1474,7 +1474,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 120,
-			tooltip: "A fancy hotel for many Trimps to live in. Complete with room service and a mini bar. Supports $incby$ Trimps.",
+			tooltip: "Ein Hotel, welches Platz für $incby$ Trimps hat.",
 			cost: {
 				gems: [2000, 1.18],
 				wood: [12000, 1.18],
@@ -1491,7 +1491,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 240,
-			tooltip: "A huge resort for your Trimps to live in. Sucks for the ones still stuck in huts. Supports $incby$ Trimps.",
+			tooltip: "EIn Resort mit Platz für $incby$ Trimps.",
 			cost: {
 				gems: [20000, 1.16],
 				wood: [120000, 1.16],
@@ -1508,7 +1508,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 480,
-			tooltip: "A Gateway to another dimension, where your Trimps can sleep and work. Supports $incby$ Trimps.",
+			tooltip: "Wer weiss schon wo sie genau sind, aber sie scheinen sich da wohl zu fühlen. Platz für $incby$ mehr Trimps.",
 			cost: {
 				fragments: [3000, 1.14],
 				gems: [20000, 1.14],
@@ -1524,7 +1524,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 600,
-			tooltip: "Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your Trimps can sleep and work. Each supports $incby$ Trimps.",
+			tooltip: "Schickenwir sie ins Wurmloch, hat sicher genug Platz für $incby$ Trimps.",
 			cost: {
 				helium: [13, 1.075],
 				metal: [100000, 1.1]
@@ -1539,7 +1539,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 120,
-			tooltip: "Pay a tribute of food to your Dragimp, increasing his appetite and his speed. He will gather gems 5% faster (compounding).",
+			tooltip: "Bessere Werkzeuge zum abbauen von Diamanten. Verschnellert um 5%.",
 			cost: {
 				food: [10000, 1.05]
 			},
@@ -1554,7 +1554,7 @@ var toReturn = {
 		Farmer: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Train one of your Trimps in the ancient art of farming. Each Farmer earns $modifier$ food per second",
+			tooltip: "Trainiere die Farmer, giebt $modifier$ Essen pro sekunde",
 			cost: {
 				food: [5, 1.0]
 			},
@@ -1564,7 +1564,7 @@ var toReturn = {
 		Lumberjack: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back $modifier$ logs per second.",
+			tooltip: "Zeige den Trimps wie man Bäume hackt. Sie produzieren nachher $modifier$ Holz pro Sekunde.",
 			cost: {
 				food: [5, 1.0]
 			},
@@ -1574,7 +1574,7 @@ var toReturn = {
 		Miner: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt $modifier$ bars of metal per second",
+			tooltip: "Sende den Trimps ein Foto vom Schlachtefeld. Wer nicht mehr Arbeitet wird da hin geschickt. Die Trumps produzieren $modifier$ Metallbaren pro Sekunde",
 			cost: {
 				food: [20, 1.0],
 			},
@@ -1584,7 +1584,7 @@ var toReturn = {
 		Scientist: {
 			locked: 1,
 			owned: 0,
-			tooltip: "It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records $modifier$ units of pure science each second.",
+			tooltip: "Es hat einige Versuche gebraucht, doch nun forschen die Forscher $modifier$ Einheiten rheine FOrschung für dich.",
 			cost: {
 				food: [100, 1.0]
 			},
@@ -1594,7 +1594,7 @@ var toReturn = {
 		Trainer: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Each trainer will increase the amount your soldiers can block by $modifier$%",
+			tooltip: "Jeder Trainer hillft um $modifier$% mehr zu Blocken",
 			cost: {
 				food: [750, 1.1]
 			},
@@ -1604,7 +1604,7 @@ var toReturn = {
 		Explorer: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Each explorer will find an average of $modifier$ fragments each second.",
+			tooltip: "Jeder Entdecker findet $modifier$ Fragmente pro sekunde.",
 			cost: {
 				food: [15000, 1.1]
 			},
@@ -1622,7 +1622,7 @@ var toReturn = {
 	upgrades: {
 		Battle: {
 			locked: 1,
-			tooltip: "Figure out how to teach these Trimps to kill some bad guys",
+			tooltip: "Herausfinden, wie die Trumps kämpfen können",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1642,7 +1642,7 @@ var toReturn = {
 		},
 		Bloodlust: {
 			locked: 1,
-			tooltip: "This book will teach your Trimps to Battle on their own.",
+			tooltip: "Dieses Buch lernt die Trimps selbstständig zu Kämpfen",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1658,7 +1658,7 @@ var toReturn = {
 		},
 		Bounty: {
 			locked: 1,
-			tooltip: "This book will teach your Farmers, Lumberjacks, Miners, Scientists, and Explorers to all be twice as productive.",
+			tooltip: "Alles sind nun doppelt so Produktiv",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1680,7 +1680,7 @@ var toReturn = {
 		},
 		Coordination: {
 			locked: 1,
-			tooltip: "This book will teach your soldiers how to utilize the buddy system. Fighting will now require 25% more Trimps (rounded up), but attack and health will be increased by the same amount.",
+			tooltip: "Dieses Buch hilft dir zu erklären, wie man Trimps beibringt mit anderen zusammen zu kämpfen, ohne sich gegenseitig abzumurksen. Truppenstärke erhöht sich um 25%",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1698,7 +1698,7 @@ var toReturn = {
 		Blockmaster: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will increase the block gained from each Gym by 1.5x",
+			tooltip: "Gym's sind jetzt um 50% härter.",
 			done: 0,
 			cost: {
 				resources: {
@@ -1715,7 +1715,7 @@ var toReturn = {
 		Blockbetter: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will increase the block gained from each Gym by 1.5x",
+			tooltip: "Gym's sind jetzt um 50% härter.",
 			done: 0,
 			cost: {
 				resources: {
@@ -1731,7 +1731,7 @@ var toReturn = {
 		},
 		Miners: {
 			locked: 1,
-			tooltip: "You really don't like reading books, but it seems better than mining yourself.",
+			tooltip: "Du magst keine Bücher, aber noch viel weniger willst du selber Minen",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1747,7 +1747,7 @@ var toReturn = {
 		},
 		Trainers: {
 			locked: 1,
-			tooltip: "This book holds all of the secrets of upper management. Train your Trimps to train other Trimps.",
+			tooltip: "Warum nicht den Trimps zeigen wie man Trimps trainiert?",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1762,7 +1762,7 @@ var toReturn = {
 		},
 		Scientists: {
 			locked: 1,
-			tooltip: "You really don't believe it, but that book indicates that Trimps can be smart. Better read it and find out how.",
+			tooltip: "Trimps als forscher? NIemals, oder doch?",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1777,7 +1777,7 @@ var toReturn = {
 		},
 		Explorers: {
 			locked: 1,
-			tooltip: "This book will allow you to hire trimps who can create map fragments for you!",
+			tooltip: "Immer der Nase nach. Wenn ihr ein Fragment findest, umkehren um 180 Grad und dann immer der Nase nach.",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -1794,7 +1794,7 @@ var toReturn = {
 		Speedlumber: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to cut wood 25% faster!",
+			tooltip: "DIeses Buch wird den Trimps helfen Bäume schneller zu hacken",
 			done: 0,
 			cost: {
 				resources: {
@@ -1809,7 +1809,7 @@ var toReturn = {
 		Speedfarming: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to farm 25% faster!",
+			tooltip: "Dieses Buch hilft mehr zu Farmen",
 			done: 0,
 			cost: {
 				resources: {
@@ -1824,7 +1824,7 @@ var toReturn = {
 		Speedminer: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to mine 25% faster!",
+			tooltip: "Dieses Buch hilft beim Minen",
 			done: 0,
 			cost: {
 				resources: {
@@ -1839,7 +1839,7 @@ var toReturn = {
 		Speedscience: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to science things 25% faster!",
+			tooltip: "Dieses Buch hilft schneller zu Forschen",
 			done: 0,
 			cost: {
 				resources: {
@@ -1853,7 +1853,7 @@ var toReturn = {
 		Efficiency: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach you how to be twice as productive in everything you do! Hurray! <b>Note that this applies only to your productivity, not workers.</b>",
+			tooltip: "Dieses Buch hilft <b>dir</b> Produktiver zu sein",
 			done: 0,
 			cost: {
 				resources: {
@@ -1870,7 +1870,7 @@ var toReturn = {
 		Potency: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your trimps how to be 10% more efficient at making baby Trimps!",
+			tooltip: "Dieses Buch verbietet Kondome, somit wird es 10% mehr Babys geben",
 			done: 0,
 			cost: {
 				resources: {
@@ -1885,7 +1885,7 @@ var toReturn = {
 	UberHotel: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will increase the space gained from each Hotel by 2x",
+			tooltip: "Doppelter Platz in Hottels durch stapeln? Klingt interessant",
 			done: 0,
 			cost: {
 				resources: {
@@ -1919,7 +1919,7 @@ var toReturn = {
 		Anger: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It'll take some research, but you think you can create a map to the place the gem originated from.",
+			tooltip: "Hier fehlt noch text sevi",
 			done: 0,
 			cost: {
 				resources: {
@@ -1942,13 +1942,13 @@ var toReturn = {
 					noRecycle: true,
 				});
 				unlockMap(game.global.mapsOwnedArray.length - 1);
-				message("You just made a map to the Dimension of Anger! Should be fun!", "Notices");
+				message("Hier fehlt noch text sevi", "Notices");
 			}
 		},
 		Egg: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Your top scientists are pretty sure this is a Dragimp egg. They know Dragimps love shiny things, maybe it'll come out for some gems.",
+			tooltip: "Hier fehlt noch text sevi, mach hier irgendwas mit dias rein",
 			done: 0,
 			cost: {
 				resources: {
@@ -1983,7 +1983,7 @@ var toReturn = {
 		Shieldblock: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book explains methods of using a shield to actually block damage. The current shield will need to be completely destroyed and rebuilt, but it will give block instead of health. <b>This is permanent</b>",
+			tooltip: "Schildblock bla bla bla",
 			done: 0,
 			cost: {
 				resources: {
@@ -2008,7 +2008,7 @@ var toReturn = {
 		Trapstorm: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.",
+			tooltip: "Dieses Buch lernt wie man nicht nur Blöd herumsitzt, sondern Produktiv ist. Sie bauen automatisch Fallen",
 			done: 0,
 			cost: {
 				resources: {
@@ -2032,7 +2032,7 @@ var toReturn = {
 		TrainTacular: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trainers to increase block by an additional 5%!",
+			tooltip: "Erhöht den Block von Trainern um 5%!",
 			done: 0,
 			cost: {
 				resources: {
@@ -2049,7 +2049,7 @@ var toReturn = {
 		Supershield: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your shield. This will destroy your old shield and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @",
+			tooltip: "Zerstöre alle Schilde und mache bessere, neuere. @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2065,7 +2065,7 @@ var toReturn = {
 		Dagadder: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your dagger. This will destroy your old dagger and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2081,7 +2081,7 @@ var toReturn = {
 		Bootboost: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your boots. This will destroy your old boots and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @",
+			tooltip: "RAlles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2097,7 +2097,7 @@ var toReturn = {
 		Megamace: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your mace. This will destroy your old mace and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2113,7 +2113,7 @@ var toReturn = {
 		Hellishmet: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your helmet. This will destroy your old helmet and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2129,7 +2129,7 @@ var toReturn = {
 		Polierarm: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your polearm. This will destroy your old polearm and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2145,7 +2145,7 @@ var toReturn = {
 		Pantastic: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your pants. This will destroy your old pants and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2161,7 +2161,7 @@ var toReturn = {
 		Axeidic: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your axe. This will destroy your old axe and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2177,7 +2177,7 @@ var toReturn = {
 		Smoldershoulder: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your shoulderguards. This will destroy your old shoulderguards and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2193,7 +2193,7 @@ var toReturn = {
 		Greatersword: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your greatsword. This will destroy your old greatsword and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2209,7 +2209,7 @@ var toReturn = {
 		Bestplate: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Researching this will prestige your breastplate. This will destroy your old breastplate and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @",
+			tooltip: "Alles Zerstören und neue, bessere machen" @",
 			done: 0,
 			cost: {
 				resources: {
@@ -2227,7 +2227,7 @@ var toReturn = {
 	triggers: {
 		Trap: {
 			done: 0,
-			message: "Maybe there's something meaty and delicious here to Trap",
+			message: "Alles Zerstören und neue, bessere machen",
 			cost: {
 				resources: {
 					food: 5,
@@ -2241,7 +2241,7 @@ var toReturn = {
 		},
 		wood: {
 			done: 0,
-			message: "You'll need some wood to build stuff...",
+			message: "Du wirst Holz brauchen um Dinge zu bauen",
 			cost: {
 				resources: {
 					food: 5
@@ -2254,7 +2254,7 @@ var toReturn = {
 		},
 		Barn: {
 			done: 0,
-			message: "The food stores are getting pretty full, maybe you should start thinking about a Barn",
+			message: "Das Essenslager ist voll, wir sollten über eine Vergrösserung von (Du-weisst-schon-was) nachdenken",
 			cost: {
 				resources: {
 					food: 350
@@ -2266,7 +2266,7 @@ var toReturn = {
 		},
 		Shed: {
 			done: 0,
-			message: "A nice Shed would allow you to keep more wood on hand",
+			message: "Das Holzlager ist voll, wir sollten über eine Vergrösserung von (Du-weisst-schon-was) nachdenken",
 			cost: {
 				resources: {
 					wood: 350
@@ -2278,7 +2278,7 @@ var toReturn = {
 		},
 		Forge: {
 			done: 0,
-			message: "A nice Forge would allow you to store more metal.",
+			message: "Das Metalllager ist voll, wir sollten über eine Vergrösserung von (Du-weisst-schon-was) nachdenken",
 			cost: {
 				resources: {
 					metal: 350
@@ -2290,7 +2290,7 @@ var toReturn = {
 		},
 		jobs: {
 			done: 0,
-			message: "There's a weird impish little creature in the trap. A Trimp, you decide to call it. Since you're so creative, you could probably train this Trimp to help out.",
+			message: "Es ist ein Komisches wesen in der Falle. Ich nenne es Trimp. Es hat sicher noch mehr.",
 			cost: {
 				resources: {
 					trimps: 1
@@ -2318,7 +2318,7 @@ var toReturn = {
 		},
 		upgrades: {
 			done: 0,
-			message: "This planet feels so familiar, yet so foreign. Maybe it's time to start sciencing things.",
+			message: "Dieser Planet sieht gemütlich aus. Vielleicht sollte ich ihn erforschen.",
 			cost: {
 				resources: {
 					trimps: 2,
@@ -2335,7 +2335,7 @@ var toReturn = {
 		Battle: {
 			done: 0,
 			once: function() {document.getElementById("upgradesTitleSpan").innerHTML = "Upgrades";},
-			message: "War... what is it good for? Exploration, or something.",
+			message: "Krieg? Für was ist das gut? Kann man das Essen? Vielleicht brauche ich es zum Erkunden",
 			cost: {
 				resources: {
 					science: 1
@@ -2348,7 +2348,7 @@ var toReturn = {
 		},
 		Hut: {
 			done: 0,
-			message: "Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter.",
+			message: "Sieht nicht so aus als hätte jeder Platz. Ich denke wir brauchen mehr Platz",
 			cost: {
 				resources: {
 					trimps: 8
@@ -2360,7 +2360,7 @@ var toReturn = {
 		},
 		House: {
 			done: 0,
-			message: "It's starting to get pretty crowded up in here. Maybe you should start building some better housing.",
+			message: "Es wird bewölkt, wir sollten uns besser Häuser bauen.",
 			cost: {
 				resources: {
 					trimps: 65
@@ -2372,7 +2372,7 @@ var toReturn = {
 		},
 		breeding: {
 			done: 0,
-			message: "Apparently the Trimps breed if they're not working. Doesn't look pleasant.",
+			message: "Was soll ich sonst mit den weiblichen Trimps machen?",
 			cost: {
 				special: function () {
 					return (game.resources.trimps.owned - game.resources.trimps.employed >= 2) ? true : false;
