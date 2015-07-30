@@ -529,13 +529,7 @@ function numTab (what) {
 
 
 }
-/* function shrink(what) { //fired by player when clicking shrink on main menu item
-	var toShrink = document.getElementById(what + "Here");
-	var alreadyShown = game.global.menu[what];
-	toShrink.style.display = (alreadyShown) ? "none" : "block";
-	game.global.menu[what] = (alreadyShown) ? false : true;
-	updateSideSize();
-}
+/* 
 
 function updateSideSize() { //resizes main menu items
 	var count = 0;
