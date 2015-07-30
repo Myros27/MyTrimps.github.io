@@ -264,8 +264,8 @@ var toReturn = {
 		
 	},
 	
-	trimpDeathTexts: ["wurde ausradiert", "Füge mehr coole Todestexte ein", "hat in das gras gebissen", "nimmt einen dreckigen schlaff", "liegt unter der erde", "expired", "sieht den rasen von unten"],
-	badGuyDeathTexts: ["gekillt", "getötet", "gekillt", "gekillt", "gekillt", "geschlagen", "geschlagen", "geschlagen", "geschändet", "zerstört", "zerstört"],
+	trimpDeathTexts: ["bissen ins Gras", "wurden geschändet", "schlaffen dreckig", "segnete das Zeitliche", "fielen vom Stuhl"],
+	badGuyDeathTexts: ["geschlagen", "gekillt", "zerstört"],
 	
 	settings: {
 		speed: 10,
